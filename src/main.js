@@ -1,11 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueGeoLocation from 'vue-browser-geolocation'
+import * as VueGoogleMaps from 'vue2-google-maps'
 import VueRouter from 'vue-router'
 import AddForm from './components/AddForm'
 import Home from './components/Home'
 import about from './components/About'
 import User from './components/User'
-import Show_data from './components/Show_data'
+import showapi from './components/Show_data'
+import Map from './components/Map'
+
+
+
 Vue.directive("size", {
   bind(el, binding) {
 
@@ -22,7 +28,15 @@ Vue.directive("size", {
 })
 
 Vue.use(VueRouter);
+Vue.use(VueGeoLocation);
 
+
+Vue.use(VueGoogleMaps,{
+  load:{
+    key:'AIzaSyAf9mwc-FqKONtCae9zD4b4LTL1DmR0l-E'
+  },
+ 
+})
 
 const routes = [
 
@@ -30,7 +44,8 @@ const routes = [
   { path: '/add', component: AddForm },
   { path: '/about', component: about },
   { path: '/user/:id', component: User },
-  { path: '/showdata', component: Show_data },
+  { path: '/showapi', component: showapi },
+  { path: '/map', component: Map },
 
 ]
 
