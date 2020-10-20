@@ -9,6 +9,7 @@ import about from './components/About'
 import User from './components/User'
 import showapi from './components/Show_data'
 import Map from './components/Map'
+import Postapi from './components/Postapi'
 
 
 
@@ -46,6 +47,7 @@ const routes = [
   { path: '/user/:id', component: User },
   { path: '/showapi', component: showapi },
   { path: '/map', component: Map },
+  {path:'/postapi',component:Postapi}
 
 ]
 
