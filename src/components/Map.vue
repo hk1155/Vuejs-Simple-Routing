@@ -13,14 +13,14 @@
       <input
         type="number"
         v-model="txtlat"
-        @change="fnset()"
+        @keypress="fnset()"
         style="margin-top: 50px; width: 200px"
         placeholder="Latitude"
       />
       <input
         type="number"
         v-model="txtlng"
-        @change="fnset()"
+        @keypress="fnset()"
         style="margin-top: 50px; width: 200px"
         placeholder="Longitude"
       />
@@ -32,7 +32,7 @@
       >
         Remove Mark
       </button>
-      <p style="color: red" v-if="errmsg">{{ errmsg }}</p>
+
       <hr />
       <gmap-map
         ref="mymap"
@@ -101,13 +101,11 @@ export default {
     reverseMessage() {
       //   this.message = this.demolat;
       //   this.message1 = this.demolng;
-      if (this.demolat!=null && this.demolng != null) {
+      if (this.demolat != null && this.demolng != null) {
         this.startLocation.lat = this.demolat;
         this.startLocation.lng = this.demolng;
-      }
-      else
-      {
-          alert('Please select the Field');
+      } else {
+        alert("Please select the Field");
       }
 
       //this.message = this.message.split("").reverse().join("");
@@ -120,7 +118,10 @@ export default {
     },
 
     fnset: function () {
-      this.showremove = true;
+      if (this.txtlat != "" && this.txtlng != "") {
+        this.showremove = true;
+      }
+
       this.coordinates.pop({
         lat: null,
         lng: null,

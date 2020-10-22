@@ -9,7 +9,7 @@ import about from './components/About'
 import User from './components/User'
 import showapi from './components/Show_data'
 import Map from './components/Map'
-import Postapi from './components/Postapi'
+
 
 
 
@@ -22,8 +22,6 @@ Vue.directive("size", {
     else{
       el.style.fontSize = "50px"
     }
-
-
   }
 
 })
@@ -40,14 +38,12 @@ Vue.use(VueGoogleMaps,{
 })
 
 const routes = [
-
   { path: '/', component: Home },
   { path: '/add', component: AddForm },
   { path: '/about', component: about },
   { path: '/user/:id', component: User },
   { path: '/showapi', component: showapi },
-  { path: '/map', component: Map },
-  {path:'/postapi',component:Postapi}
+  { path: '/map', component: Map },  
 
 ]
 
